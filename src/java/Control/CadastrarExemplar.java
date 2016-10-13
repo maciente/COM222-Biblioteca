@@ -1,86 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author joao
- */
 public class CadastrarExemplar extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CadastrarExemplar</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CadastrarExemplar at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+    private String isbn, numero, preco, situacao;
+    private PreparedStatement pstmt;
+
+    public void init() throws ServletException {
+        inicializaJdbc();
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        // Obtem os dados do formulário
+        isbn = request.getParameter("isbn");
+        numero = request.getParameter("numero");
+        preco = request.getParameter("preco");
+        situacao = request.getParameter("situacao");
+        try {
+            armazenaExemplar();
+            out.println("Exemplar " + numero + " está agora registrado na base de dados");
+        } catch (Exception ex) {
+            out.println("Error: " + ex.getMessage());
+            return;
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    private void inicializaJdbc() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost/biblioteca", "root", "");
+            pstmt = c.prepareStatement("insert into exemplar "
+                    + "(isbn, numero, preco, situacao)"
+                    + " values (?, ?, ?, ?)");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    private void armazenaExemplar() throws SQLException {
+        pstmt.setInt(1, Integer.parseInt(isbn));
+        pstmt.setInt(2, Integer.parseInt(numero));
+        pstmt.setDouble(3, Double.parseDouble(preco));
+        pstmt.setString(4, situacao);
+        pstmt.executeUpdate();
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
