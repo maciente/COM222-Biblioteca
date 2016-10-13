@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>LoginAuthentication</servlet-name>
+        <servlet-class>Control.LoginAuthentication</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarAssociado</servlet-name>
+        <servlet-class>Control.CadastrarAssociado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarPublicacao</servlet-name>
+        <servlet-class>Control.CadastrarPublicacao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarExemplar</servlet-name>
+        <servlet-class>Control.CadastrarExemplar</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginAuthentication</servlet-name>
+        <url-pattern>/LoginAuthentication</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarAssociado</servlet-name>
+        <url-pattern>/CadastrarAssociado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarPublicacao</servlet-name>
+        <url-pattern>/CadastrarPublicacao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarExemplar</servlet-name>
+        <url-pattern>/CadastrarExemplar</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
