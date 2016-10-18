@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class cadastrarAssociado_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class consultarPublicacao_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,21 +46,17 @@ public final class cadastrarAssociado_jsp extends org.apache.jasper.runtime.Http
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Cadastrar Associado</title>\n");
+      out.write("        <title>Consultar Publicação</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h3>Dados do Associado</h3>\n");
-      out.write("        <form method = \"get\" action = \"/Biblioteca/CadastrarAssociado\">\n");
-      out.write("            <p>Código: <input type = \"text\" name = \"codigo\" size = \"11\"></p>\n");
-      out.write("            <p>Nome: <input type = \"text\" name = \"nome\" size = \"30\"></p>\n");
-      out.write("            <p>Senha: <input type = \"password\" name = \"senha\" size = \"12\"></p>\n");
-      out.write("            <p>Email: <input type = \"text\" name = \"email\" size = \"40\"></p>\n");
-      out.write("            <p>Endereço: <input type = \"text\" name = \"endereco\" size = \"50\"></p>\n");
-      out.write("            <p>Tipo: </p>\n");
+      out.write("        <h3>Dados da Publicação</h3>\n");
+      out.write("        <form method = \"post\" action = \"/Biblioteca/ConsultarPublicacao\">\n");
+      out.write("            <p>Pesquisar por: </p>\n");
       out.write("            <p>\n");
-      out.write("                <input type=\"radio\" name=\"tipo\" value=\"Grad\" checked> Aluno de graduação<br>\n");
-      out.write("                <input type=\"radio\" name=\"tipo\" value=\"Posgrad\"> Aluno de pós-graduação<br>\n");
-      out.write("                <input type=\"radio\" name=\"tipo\" value=\"Prof\"> professor \n");
+      out.write("                <input type=\"radio\" name=\"fonte\" value=\"isbn\" checked> ISBN: \n");
+      out.write("                <input type = \"text\" name = \"isbn\" size = \"15\"><br>\n");
+      out.write("                <input type=\"radio\" name=\"fonte\" value=\"titulo\"> Título: \n");
+      out.write("                <input type = \"text\" name = \"titulo\" size = \"40\"><br>\n");
       out.write("            </p>\n");
       out.write("            <p>\n");
       out.write("                <input type = \"submit\" name = \"Submit\" value = \"Submit\">\n");

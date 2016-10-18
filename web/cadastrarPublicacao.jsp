@@ -7,7 +7,7 @@
     </head>
     <body>
         <h3>Dados da Publicação</h3>
-        <form method = "get" action = "/Biblioteca/CadastrarPublicacao">
+        <form method = "post" action = "/Biblioteca/CadastrarPublicacao">
             <p>ISBN: <input type = "text" name = "isbn" size = "15"></p>
             <p>Titulo: <input type = "text" name = "titulo" size = "40"></p>
             <p>Autor: <input type = "text" name = "autor" size = "40"></p>

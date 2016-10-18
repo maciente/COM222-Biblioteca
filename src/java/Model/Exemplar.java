@@ -2,17 +2,17 @@ package Model;
 
 public class Exemplar {
 
-    private Publicacao publicacao;
+    private int isbn;
     private int numero;
     private Double preco;
     private String situacao;
 
-    public Publicacao getPublicacao() {
-        return publicacao;
+    public int getIsbn() {
+        return isbn;
     }
 
-    public void setPublicacao(Publicacao publicacao) {
-        this.publicacao = publicacao;
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
     }
 
     public int getNumero() {

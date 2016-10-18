@@ -50,9 +50,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <h3>Login</h3>\n");
-      out.write("        <form method = \"get\" action = \"/Biblioteca/LoginAuthentication\">\n");
+      out.write("        <form method = \"post\" action = \"/Biblioteca/LoginAuthentication\">\n");
       out.write("            <p>Código: <input type = \"text\" name = \"codigo\" size = \"11\"></p>\n");
-      out.write("            <p>Senha: <input type = \"date\" name = \"senha\" size = \"12\"></p>\n");
+      out.write("            <p>Senha: <input type = \"password\" name = \"senha\" size = \"12\"></p>\n");
       out.write("            <p>\n");
       out.write("                <input type = \"submit\" name = \"Submit\" value = \"Submit\">\n");
       out.write("                <input type = \"reset\" value = \"Reset\">\n");

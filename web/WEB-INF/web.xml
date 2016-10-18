@@ -13,8 +13,16 @@
         <servlet-class>Control.CadastrarPublicacao</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ConsultarPublicacao</servlet-name>
+        <servlet-class>Control.ConsultarPublicacao</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CadastrarExemplar</servlet-name>
         <servlet-class>Control.CadastrarExemplar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RealizarEmprestimo</servlet-name>
+        <servlet-class>Control.RealizarEmprestimo</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginAuthentication</servlet-name>
@@ -29,8 +37,16 @@
         <url-pattern>/CadastrarPublicacao</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ConsultarPublicacao</servlet-name>
+        <url-pattern>/ConsultarPublicacao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CadastrarExemplar</servlet-name>
         <url-pattern>/CadastrarExemplar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RealizarEmprestimo</servlet-name>
+        <url-pattern>/RealizarEmprestimo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

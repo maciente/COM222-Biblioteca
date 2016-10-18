@@ -7,7 +7,7 @@
     </head>
     <body>
         <h3>Login</h3>
-        <form method = "get" action = "/Biblioteca/LoginAuthentication">
+        <form method = "post" action = "/Biblioteca/LoginAuthentication">
             <p>Código: <input type = "text" name = "codigo" size = "11"></p>
             <p>Senha: <input type = "password" name = "senha" size = "12"></p>
             <p>

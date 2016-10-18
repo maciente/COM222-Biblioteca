@@ -2,24 +2,33 @@ package Model;
 
 public class Emprestimo {
 
-    private Associado associado;
-    private Exemplar exemplar;
+    private int codigo;
+    private int numero;
+    private int isbn;
     private String data_emprestimo;
 
-    public Associado getAssociado() {
-        return associado;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setAssociado(Associado associado) {
-        this.associado = associado;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public Exemplar getExemplar() {
-        return exemplar;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setExemplar(Exemplar exemplar) {
-        this.exemplar = exemplar;
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
     }
 
     public String getData_emprestimo() {
@@ -29,5 +38,7 @@ public class Emprestimo {
     public void setData_emprestimo(String data_emprestimo) {
         this.data_emprestimo = data_emprestimo;
     }
+
+    
 
 }

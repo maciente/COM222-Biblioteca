@@ -7,7 +7,7 @@
     </head>
     <body>
         <h3>Dados do Associado</h3>
-        <form method = "get" action = "/Biblioteca/CadastrarAssociado">
+        <form method = "post" action = "/Biblioteca/CadastrarAssociado">
             <p>Código: <input type = "text" name = "codigo" size = "11"></p>
             <p>Nome: <input type = "text" name = "nome" size = "30"></p>
             <p>Senha: <input type = "password" name = "senha" size = "12"></p>

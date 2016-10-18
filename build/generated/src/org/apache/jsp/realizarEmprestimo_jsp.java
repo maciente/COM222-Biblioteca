@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class cadastrarPublicacao_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class realizarEmprestimo_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,16 +46,15 @@ public final class cadastrarPublicacao_jsp extends org.apache.jasper.runtime.Htt
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Cadastrar Publicação</title>\n");
+      out.write("        <title>Realizar Empréstimo</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h3>Dados da Publicação</h3>\n");
-      out.write("        <form method = \"get\" action = \"/Biblioteca/CadastrarPublicacao\">\n");
+      out.write("        <h3>Dados do Empréstimo</h3>\n");
+      out.write("        <form method = \"post\" action = \"/Biblioteca/RealizarEmprestimo\">\n");
       out.write("            <p>ISBN: <input type = \"text\" name = \"isbn\" size = \"15\"></p>\n");
-      out.write("            <p>Titulo: <input type = \"text\" name = \"titulo\" size = \"40\"></p>\n");
-      out.write("            <p>Autor: <input type = \"text\" name = \"autor\" size = \"40\"></p>\n");
-      out.write("            <p>Editora: <input type = \"text\" name = \"editora\" size = \"30\"></p>\n");
-      out.write("            <p>Ano de Publicação: <input type = \"text\" name = \"ano\" size = \"4\"></p>\n");
+      out.write("            <p>Numero do Exemplar: <input type = \"text\" name = \"numero\" size = \"10\"></p>\n");
+      out.write("            <p>Código do Associado: <input type = \"text\" name = \"codigo\" size = \"15\"></p>\n");
+      out.write("            <p>Data do Empréstimo: <input type = \"text\" pattern=\"\\d{1,2}/\\d{1,2}/\\d{4}\" name = \"data\" size = \"10\"></p>\n");
       out.write("            <p>\n");
       out.write("                <input type = \"submit\" name = \"Submit\" value = \"Submit\">\n");
       out.write("                <input type = \"reset\" value = \"Reset\">\n");
