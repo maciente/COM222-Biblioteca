@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class consultarPublicacao_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class realizarDevolucao_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,18 +46,14 @@ public final class consultarPublicacao_jsp extends org.apache.jasper.runtime.Htt
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Consultar Publicação</title>\n");
+      out.write("        <title>Realizar Empréstimo</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h3>Dados da Publicação</h3>\n");
-      out.write("        <form method = \"post\" action = \"/Biblioteca/ConsultarPublicacao\">\n");
-      out.write("            <p>Pesquisar por: </p>\n");
-      out.write("            <p>\n");
-      out.write("                <input type=\"radio\" name=\"fonte\" value=\"isbn\" checked> ISBN: \n");
-      out.write("                <input type = \"text\" name = \"isbn\" size = \"15\"><br>\n");
-      out.write("                <input type=\"radio\" name=\"fonte\" value=\"titulo\"> Título: \n");
-      out.write("                <input type = \"text\" name = \"titulo\" size = \"40\"><br>\n");
-      out.write("            </p>\n");
+      out.write("        <h3>Dados do Empréstimo</h3>\n");
+      out.write("        <form method = \"post\" action = \"/Biblioteca/RealizarDevolucao\">\n");
+      out.write("            <p>ISBN: <input type = \"text\" name = \"isbn\" size = \"15\"></p>\n");
+      out.write("            <p>Numero do Exemplar: <input type = \"text\" name = \"numero\" size = \"10\"></p>\n");
+      out.write("            <p>Data de Devolução: <input type = \"text\" pattern=\"\\d{1,2}/\\d{1,2}/\\d{4}\" name = \"dataDevolucao\" size = \"10\"></p>\n");
       out.write("            <p>\n");
       out.write("                <input type = \"submit\" name = \"Submit\" value = \"Submit\">\n");
       out.write("                <input type = \"reset\" value = \"Reset\">\n");

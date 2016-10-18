@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class RealizarEmprestimo extends HttpServlet {
 
-    private String data, situacao;
-    private int isbn, numero, codigo;
+    private String situacao;
+    private int isbn, numero;
     private Emprestimo instancia;
     private EmprestimoDao iDao;
     private Exemplar exemplar;
@@ -44,7 +44,6 @@ public class RealizarEmprestimo extends HttpServlet {
             }
         } catch (Exception ex) {
             out.println("Error: " + ex.getMessage());
-            return;
         }
     }
 

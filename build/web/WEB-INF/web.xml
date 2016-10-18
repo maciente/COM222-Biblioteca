@@ -24,6 +24,10 @@
         <servlet-name>RealizarEmprestimo</servlet-name>
         <servlet-class>Control.RealizarEmprestimo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RealizarDevolucao</servlet-name>
+        <servlet-class>Control.RealizarDevolucao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginAuthentication</servlet-name>
         <url-pattern>/LoginAuthentication</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>RealizarEmprestimo</servlet-name>
         <url-pattern>/RealizarEmprestimo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RealizarDevolucao</servlet-name>
+        <url-pattern>/RealizarDevolucao</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

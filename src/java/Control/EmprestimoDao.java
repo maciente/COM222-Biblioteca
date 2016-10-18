@@ -35,4 +35,40 @@ public class EmprestimoDao {
             throw new RuntimeException(e);
         }
     }
+
+    public void devolve(Emprestimo emprestimo) {
+        sql = "delete from empresta where isbn = ? and numero = ? ";
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, emprestimo.getIsbn());
+            pstmt.setInt(2, emprestimo.getNumero());
+
+            pstmt.execute();
+            pstmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public Emprestimo getEmprestimo(int isbn, int numero) {
+        sql = "select * from empresta where isbn = ? and numero = ? ";
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, isbn);
+            pstmt.setInt(2, numero);
+            rs = pstmt.executeQuery();
+            Emprestimo instancia = new Emprestimo();
+            while (rs.next()) {
+                instancia.setIsbn(isbn);
+                instancia.setNumero(numero);
+                instancia.setCodigo(rs.getInt("codigo"));
+                instancia.setData_emprestimo(rs.getString("data_emprestimo"));
+            }
+            rs.close();
+            pstmt.close();
+            return instancia;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

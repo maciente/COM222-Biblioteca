@@ -63,4 +63,26 @@ public class AssociadoDao {
             throw new RuntimeException(e);
         }
     }
+    
+    public Associado getAssociado(int codigo){
+        sql = "select * from associado where codigo = ? ";
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, codigo);
+            rs = pstmt.executeQuery();
+            Associado associado = new Associado();
+            while (rs.next()) {
+                associado.setCodigo(codigo);
+                associado.setNome(rs.getString("nome"));
+                associado.setEndereco(rs.getString("endereco"));
+                associado.setEmail(rs.getString("email"));
+                associado.setTipo(rs.getString("tipo"));
+            }
+            rs.close();
+            pstmt.close();
+            return associado;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
